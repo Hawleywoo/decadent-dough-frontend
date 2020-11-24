@@ -36,3 +36,44 @@
     transform: rotate(360deg);
   }
 }
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  box-shadow:  10px 10px 10px black;
+  z-index: 10;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  z-index: 1;
+  width: 100vw;
+  background-color: white;
+}
+
+.banner-img {
+  width: 100vw;
+}
+
+.navigation{
+  height: auto;
+  display: flex;
+  align-items: flex-end;
+}
+
+.body-section{
+  margin-top: 5em;
+  margin-left: 10em;
+  margin-right: 10em;
+  justify-content: space-around;
+  display: flex;
+}
+
+.description{
+
+}
+
+.section-image{
+  height: 10em;
+  width: 10em;
+}
+
