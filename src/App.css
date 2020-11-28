@@ -39,15 +39,15 @@
 
 .header{
   display: flex;
-  justify-content: space-between;
-  box-shadow:  10px 10px 10px black;
+  justify-content: center;
+  box-shadow:  5px 5px 10px black;
   z-index: 10;
   position: fixed;
   left: 0px;
   top: 0px;
   z-index: 1;
   width: 100vw;
-  background-color: white;
+  background-color: hsl(0,0%,100%);
 }
 
 .banner-img {
@@ -77,3 +77,7 @@
   width: 10em;
 }
 
+.main-body{
+  margin-left: 5em;
+  margin-right: 5em;
+}
