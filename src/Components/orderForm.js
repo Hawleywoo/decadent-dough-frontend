@@ -53,7 +53,8 @@ export default class OrderForm extends React.Component {
                     <input type="file" multiple onChange={this.handleFileChange} />
                     <input type="submit" placeholder="Submit Order" />
                 </form>
-                <img src={this.state.src}  alt="Uploaded" />
+                <img src={this.state.src}  alt="Uploaded" className="uploaded-image"/>
+                <p>You will recieve an email once the order is recieved.</p>
             </div>
         )
     }
