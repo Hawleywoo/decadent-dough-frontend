@@ -3,6 +3,7 @@ import Header from './Components/header';
 import OrderForm from './Components/orderForm'
 import React from 'react'
 import BodySection from './Components/bodySection'
+import Login from './Components/login'
 
 const aboutUs = "this is some stuff about me and how i make awesome cookies and shit. Blah blah blah"
 
@@ -33,8 +34,9 @@ class App extends React.Component {
             <a>pricing sheet</a>
             <a>order cookies</a>
             <OrderForm addOrder={this.addOrder} />
-
           </div>
+
+          <Login />
         </div>
       </div>
     );
