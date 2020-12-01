@@ -21,6 +21,16 @@ class App extends React.Component {
     })
   }
 
+  login = () => {
+    fetch(firebase, {
+      method: 'POST',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify({})
+    })
+  }
+
   render(){
     return (
       <div className="App">
