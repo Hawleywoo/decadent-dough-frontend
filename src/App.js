@@ -4,6 +4,13 @@ import OrderForm from './Components/orderForm'
 import React from 'react'
 import BodySection from './Components/bodySection'
 import Login from './Components/login'
+import { 
+  BrowserRouter as Router, 
+  Link, 
+  Route, 
+  Switch
+} from 'react-router-dom'
+
 
 const aboutUs = "this is some stuff about me and how i make awesome cookies and shit. Blah blah blah"
 
@@ -21,15 +28,17 @@ class App extends React.Component {
     })
   }
 
-  login = () => {
-    fetch(firebase, {
-      method: 'POST',
-      headers: {
-        'Content-type': 'application/json'
-      },
-      body: JSON.stringify({})
-    })
-  }
+  // login = () => {
+  //   return fetch(firebase, {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-type': 'application/json'
+  //     },
+  //     body: JSON.stringify({})
+  //   })
+  // }
+
+
 
   render(){
     return (
@@ -45,8 +54,16 @@ class App extends React.Component {
             <a>order cookies</a>
             <OrderForm addOrder={this.addOrder} />
           </div>
+          <Router>
+            <Link to={/admin} > Admin </Link >
+            <Switch>
+              <Route path="/admin">
+                <Login />
+              </Route>
 
-          <Login />
+            </Switch>
+
+          </Router>
         </div>
       </div>
     );
