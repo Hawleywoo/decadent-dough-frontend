@@ -5,6 +5,8 @@ import React from 'react'
 import BodySection from './Components/bodySection'
 import Login from './Components/login'
 import OrdersContainer from './Components/ordersContainer'
+import SignUp from '../Components/signUp'
+
 import {
   BrowserRouter as Router,
   Link,
@@ -61,6 +63,7 @@ class App extends React.Component {
               <Switch>
                 <Route path="/admin">
                   <Login />
+                  <SignUp />
                 </Route>
 
               </Switch>
