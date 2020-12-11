@@ -22,7 +22,8 @@ const nextSection = "her is some other stuff that i want here to talk about cook
 class App extends React.Component {
 
   state = {
-    orders: []
+    orders: [],
+    user: {}
   }
 
   addOrder = (order) => {
