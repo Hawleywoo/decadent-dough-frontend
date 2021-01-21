@@ -1,3 +1,4 @@
+
 import React from 'react'
 import Order from './order'
 
@@ -9,9 +10,9 @@ export default function OrdersContainer({ orders }) {
         })
     }
 
-
     return(
-
-        
+        <div>
+            {ordersList}
+        </div>
     )
 }
