@@ -13,11 +13,11 @@ export default function SignUp(){
     const { signUp } = useAuth()
 
 
-    // const handleChange = (event) => {
-    //     this.setState({
-    //         [event.target.name]: event.target.value
-    //     })
-    // }
+    const handleChange = (event) => {
+        // this.setState({
+        //     [event.target.name]: event.target.value
+        // })
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault()
@@ -38,12 +38,15 @@ export default function SignUp(){
     }
 
         return(
-            <form className="signUp" onSubmit={handleSubmit} >
-                <label>Email</label>
-                <input name="email" ref={emailRef} value={email} placeholder="Email" onChange={this.handleChange}/>
-                <label>Password</label>
-                <input name="password" ref={passwordRef} value={password} type="password"  placeholder="Password..." onChange={this.handleChange} />
-                <input type="submit" disabled={loading} value="Sign Up" />
-            </form>
+            <div className="card">
+                <form className="signUp" onSubmit={handleSubmit} >
+                    <label>Email</label>
+                    <input name="email" ref={emailRef}  placeholder="Email" onChange={handleChange}/>
+                    <label>Password</label>
+                    <input name="password" ref={passwordRef}  type="password"  placeholder="Password..." onChange={handleChange} />
+                    <input name="passwordConfirm" ref={passwordConfirmRef}  type="password"  placeholder="Confirm Password..." onChange={handleChange} />
+                    <input type="submit" disabled={loading} value="Sign Up" />
+                </form>
+            </div>
         )
 }
