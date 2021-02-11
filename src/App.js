@@ -6,6 +6,7 @@ import BodySection from './Components/bodySection'
 import Login from './Components/login'
 import OrdersContainer from './Components/ordersContainer'
 import SignUp from './Components/signUp'
+import Dashboard from './Components/dashboard'
 import {
   BrowserRouter as Router,
   Link,
@@ -24,18 +25,6 @@ class App extends React.Component {
   state = {
     orders: [],
     user: {}
-  }
-
-  signUp = (user) => {
-    this.setState({ user })
-    // fetch(firebase, {
-    //   METHOD: 'POST',
-    //   headers:{
-    //     'Content-type': 'application/json',
-    //     'Accept': 'application/json'
-    //   },
-    //   body: JSON.stringify()
-    // })
   }
 
   addOrder = (order) => {
@@ -76,8 +65,10 @@ class App extends React.Component {
           <Router>
             <AuthProvider>
 
-              <Link to="/admin"> Admin </Link >
+              <Link to="/signup"> Sign Up </Link >
+              <Link to="/login"> login </Link >
               <Switch>
+                <Route exact path='/' component={Dashboard} />
                 <Route path="/signup" component={SignUp} />
                 <Route path='/login' component={Login} />
               </Switch>
