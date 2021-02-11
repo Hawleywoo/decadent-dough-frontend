@@ -26,7 +26,7 @@ class App extends React.Component {
     user: {}
   }
 
-  signUp = (user) =>{
+  signUp = (user) => {
     this.setState({ user })
     // fetch(firebase, {
     //   METHOD: 'POST',
@@ -59,39 +59,33 @@ class App extends React.Component {
 
   render() {
     return (
-      <AuthProvider>
-      
-        <Router>
-          
-            <div className="App">
-              <Header />
-              <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" />
-              <hr></hr>
-              <div className="main-body">
-                <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
-                <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
-                <div>
-                  <a>pricing sheet</a>
-                  <a>order cookies</a>
-                  <OrderForm addOrder={this.addOrder} />
-                </div>
 
-                <Link to="/admin"> Admin </Link >
-                  <Switch>
-                    <Route path="/admin">
-                      <Login />
-                      {this.state.user.userName
-                        ? <h2>Welcome {this.state.user.userName}</h2> 
-                        : <SignUp signUp={this.signUp}/>  
-                      }
-                    </Route>
 
-                  </Switch>
-                  </div>
+      <div className="App">
+        <Header />
+        <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" />
+        <hr></hr>
+        <div className="main-body">
+          <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
+          <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
+          <div>
+            <a>pricing sheet</a>
+            <a>order cookies</a>
+            <OrderForm addOrder={this.addOrder} />
           </div>
-          
-        </Router>
-      </AuthProvider>
+          <Router>
+            <AuthProvider>
+
+              <Link to="/admin"> Admin </Link >
+              <Switch>
+                <Route path="/signup" component={SignUp} />
+                <Route path='/login' component={Login} />
+              </Switch>
+            </AuthProvider>
+          </Router>
+        </div>
+      </div>
+
     );
   }
 }

@@ -1,5 +1,6 @@
 import React , { useRef,useState} from 'react'
 import { useAuth } from '../Contexts/authContext'
+import ErrorAlert  from './errorAlert'
 
 
 export default function SignUp(){
@@ -21,6 +22,7 @@ export default function SignUp(){
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        signUp(emailRef.current.value, passwordRef.current.value)
 
         if(passwordRef.current.value !== passwordConfirmRef.current.value){
             return setError('Passwords do not match')
@@ -39,12 +41,14 @@ export default function SignUp(){
 
         return(
             <div className="card">
+                {error && <ErrorAlert error={error} />}
                 <form className="signUp" onSubmit={handleSubmit} >
                     <label>Email</label>
-                    <input name="email" ref={emailRef}  placeholder="Email" onChange={handleChange}/>
+                    <input name="email" ref={emailRef}  placeholder="Email" onChange={handleChange} required/>
                     <label>Password</label>
-                    <input name="password" ref={passwordRef}  type="password"  placeholder="Password..." onChange={handleChange} />
-                    <input name="passwordConfirm" ref={passwordConfirmRef}  type="password"  placeholder="Confirm Password..." onChange={handleChange} />
+                    <input name="password" ref={passwordRef}  type="password"  placeholder="Password..." onChange={handleChange} required/>
+                    <label>Confirm Password</label>
+                    <input name="passwordConfirm" ref={passwordConfirmRef}  type="password"  placeholder="Confirm Password..." onChange={handleChange} required/>
                     <input type="submit" disabled={loading} value="Sign Up" />
                 </form>
             </div>
