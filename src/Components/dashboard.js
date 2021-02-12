@@ -1,14 +1,22 @@
 import React, { useState } from 'react'
 import ErrorAlert from './errorAlert'
-import { Link } from 'react-router-dom'
-import { useAuth, logout } from '../Contexts/authContext'
+import { Link, useHistory} from 'react-router-dom'
+import { useAuth } from '../Contexts/authContext'
 
 export default function Dashboard(){
     const [error, setError] = useState('')
-    const { currentUser } = useAuth()
-    
-    const handleLogout = () => {
+    const { currentUser, logout } = useAuth()
+    const history = useHistory()
 
+    const handleLogout = async () => {
+        setError('')
+
+        try{
+            await logout()
+            history.push('/login')
+        } catch {
+            setError('Failed to log out')
+        }
     }
 
     return (

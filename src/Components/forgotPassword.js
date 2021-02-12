@@ -4,34 +4,28 @@ import ErrorAlert  from './errorAlert'
 import { Link, useHistory } from 'react-router-dom'
 
 
-export default function Login(){
+export default function ForgotPassword(){
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
+    const [message, setMessage] = useState('')
 
     const emailRef = useRef()
-    const passwordRef = useRef()
 
     const history = useHistory()
 
-    const { login } = useAuth()
-
-
-    const handleChange = (event) => {
-        // this.setState({
-        //     [event.target.name]: event.target.value
-        // })
-    }
+    const { resetPassword } = useAuth()
 
     const handleSubmit = async (event) => {
         event.preventDefault()
 
         try {
+            setMessage('')
             setError('')
-            setLoading(true)
-            await login(emailRef.current.value, passwordRef.current.value)
-            history.push('/')
+            setLoading(true) 
+            await resetPassword(emailRef.current.value)
+            setMessage('Check your inbox for futher instructions.')
         } catch {
-            setError('Failed to Login')
+            setError('Failed to reset password.')
         }
 
         setLoading(false)
@@ -40,16 +34,13 @@ export default function Login(){
         return(
             <div className="card">
                 {error && <ErrorAlert error={error} />}
+                {message && <ErrorAlert error={message} />}
                 <form className="signUp" onSubmit={handleSubmit} >
                     <label>Email</label>
-                    <input name="email" ref={emailRef}  placeholder="Email" onChange={handleChange} required/>
-                    <label>Password</label>
-                    <input name="password" ref={passwordRef}  type="password"  placeholder="Password..." onChange={handleChange} required/>
-                    <input type="submit" disabled={loading} value="Login" />
+                    <input name="email" ref={emailRef}  placeholder="Email"  required/>
+                    <input type="submit" disabled={loading} value="Reset Password" />
                 </form>
-                <div>
-                    <Link to='/forgot-password'> Forgot Password </Link>
-                </div>
+                <Link to='/login' > Login </Link>
                 <div>
                     Need an account? <Link to='/signup' > Sign Up</Link>
                 </div>

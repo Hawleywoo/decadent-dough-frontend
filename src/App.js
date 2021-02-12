@@ -7,6 +7,9 @@ import Login from './Components/login'
 import OrdersContainer from './Components/ordersContainer'
 import SignUp from './Components/signUp'
 import Dashboard from './Components/dashboard'
+import PrivateRoute from './Components/privateRoute'
+import ForgotPassword from './Components/forgotPassword'
+import UpdateProfile from './Components/updateProfile'
 import {
   BrowserRouter as Router,
   Link,
@@ -68,15 +71,16 @@ class App extends React.Component {
               <Link to="/signup"> Sign Up </Link >
               <Link to="/login"> login </Link >
               <Switch>
-                <Route exact path='/' component={Dashboard} />
+                <PrivateRoute exact path='/' component={Dashboard} />
+                <PrivateRoute path='/update-profile' component={UpdateProfile} />
                 <Route path="/signup" component={SignUp} />
                 <Route path='/login' component={Login} />
+                <Route path='/forgot-password' component={ForgotPassword} />
               </Switch>
             </AuthProvider>
           </Router>
         </div>
       </div>
-
     );
   }
 }
