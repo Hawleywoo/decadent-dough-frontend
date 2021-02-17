@@ -1,6 +1,6 @@
 import React , { useRef,useState} from 'react'
-import { useAuth } from '../Contexts/authContext'
-import ErrorAlert  from './errorAlert'
+import { useAuth } from '../../Contexts/authContext'
+import ErrorAlert  from '../errorAlert'
 import { Link, useHistory } from 'react-router-dom'
 
 
@@ -10,8 +10,6 @@ export default function ForgotPassword(){
     const [message, setMessage] = useState('')
 
     const emailRef = useRef()
-
-    const history = useHistory()
 
     const { resetPassword } = useAuth()
 

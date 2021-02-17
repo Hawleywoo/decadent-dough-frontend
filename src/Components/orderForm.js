@@ -1,61 +1,72 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { storage } from '../firebase'
 
 const initialState = {
     name: '',
     phoneNumber: '',
 }
 
-export default class OrderForm extends React.Component {
+const allinputs = {imgUrl: ''}
 
-    state = {
-        name: '',
-        phoneNumber: '',
-        imageFile: null,
-        src: null,
+export default function OrderForm(props) {
+    const [ imageAsFile, setImageAsFile ] = useState({})
+    const [ imageAsUrl, setImageAsUrl ] = useState(allinputs)
+
+    const handleImageAsFile = (event) => {
+        const image = event.target.files[0]
+        console.log( image, 'image')
+        setImageAsFile(image)
     }
 
-    handleChange = (event) => {
-        let { name } = event.target
-        let value = event.target.value
-        this.setState({
-            [name]: value
-        })
-    }
+    // state = {
+    //     name: '',
+    //     phoneNumber: '',
+    //     imageFile: null,
+    //     src: null,
+    // }
 
-    handleSubmit = (event) => {
+    // handleChange = (event) => {
+    //     let { name } = event.target
+    //     let value = event.target.value
+    //     this.setState({
+    //         [name]: value
+    //     })
+    // }
+
+    const handleSubmit = (event) => {
+        console.log(imageAsFile)
         event.preventDefault()
-        this.props.addOrder(this.state)
-        this.resetState()
+        props.addOrder()
+        // this.resetState()
     }
 
-    resetState = () => {
-        this.setState(initialState)
-    }
+    // resetState = () => {
+    //     this.setState(initialState)
+    // }
 
-    handleFileChange = (event) => {
-        this.setState({
-            imageFile: event.target.files[0],
-            src: URL.createObjectURL(event.target.files[0])
-        })
-    }
+    // handleFileChange = (event) => {
+    //     this.setState({
+    //         imageFile: event.target.files[0],
+    //         src: URL.createObjectURL(event.target.files[0])
+    //     })
+    // }
 
-    fileUploadHandler = () => {
+    // fileUploadHandler = () => {
 
-    }
+    // }
 
-    render(){
-        return(
-            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <input name="name" value={this.state.name} placeholder='Name...' onChange={this.handleChange} />
-                    <input name="phoneNumber" value={this.state.phoneNumber} placeholder='Phone Number (555-555-5555)' onChange={this.handleChange} />
-                    <input type="textarea" />
-                    <input type="file" multiple onChange={this.handleFileChange} />
-                    <input type="submit" placeholder="Submit Order" />
-                </form>
-                <img src={this.state.src}  alt="Uploaded" className="uploaded-image"/>
-                <p>You will recieve an email once the order is recieved.</p>
-            </div>
-        )
-    }
+
+    return (
+        <div>
+            <form onSubmit={handleSubmit} >
+                <input name="name"  placeholder='Name...' onChange={()=>{}} />
+                <input name="phoneNumber"  placeholder='Phone Number (555-555-5555)' onChange={()=>{}} />
+                <input type="textarea" />
+                <input type="file" multiple onChange={handleImageAsFile} />
+                <input type="submit" placeholder="Submit Order" />
+            </form>
+            <img src={imageAsFile.name} alt="Uploaded" className="uploaded-image" />
+            <p>You will recieve an email once the order is recieved.</p>
+        </div>
+    )
 }  

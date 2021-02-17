@@ -3,13 +3,13 @@ import Header from './Components/header';
 import OrderForm from './Components/orderForm'
 import React from 'react'
 import BodySection from './Components/bodySection'
-import Login from './Components/login'
+import Login from './Components/Authentication/login'
 import OrdersContainer from './Components/ordersContainer'
-import SignUp from './Components/signUp'
+import SignUp from './Components/Authentication/signUp'
 import Dashboard from './Components/dashboard'
-import PrivateRoute from './Components/privateRoute'
-import ForgotPassword from './Components/forgotPassword'
-import UpdateProfile from './Components/updateProfile'
+import PrivateRoute from './Components/Authentication/privateRoute'
+import ForgotPassword from './Components/Authentication/forgotPassword'
+import UpdateProfile from './Components/Authentication/updateProfile'
 import {
   BrowserRouter as Router,
   Link,
@@ -57,19 +57,16 @@ class App extends React.Component {
         <Header />
         <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" />
         <hr></hr>
-        <div className="main-body">
-          <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
-          <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
-          <div>
-            <a>pricing sheet</a>
-            <a>order cookies</a>
-            <OrderForm addOrder={this.addOrder} />
-          </div>
-          <Router>
+        <Router>
+          <div className="main-body">
+            <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
+            <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
+            <div>
+              <a>pricing sheet</a>
+              <a>order cookies</a>
+              <OrderForm addOrder={this.addOrder} />
+            </div>
             <AuthProvider>
-
-              <Link to="/signup"> Sign Up </Link >
-              <Link to="/login"> login </Link >
               <Switch>
                 <PrivateRoute exact path='/' component={Dashboard} />
                 <PrivateRoute path='/update-profile' component={UpdateProfile} />
@@ -78,8 +75,8 @@ class App extends React.Component {
                 <Route path='/forgot-password' component={ForgotPassword} />
               </Switch>
             </AuthProvider>
-          </Router>
-        </div>
+          </div>
+        </Router>
       </div>
     );
   }
