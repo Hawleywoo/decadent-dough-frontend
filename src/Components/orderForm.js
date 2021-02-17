@@ -11,11 +11,37 @@ const allinputs = {imgUrl: ''}
 export default function OrderForm(props) {
     const [ imageAsFile, setImageAsFile ] = useState({})
     const [ imageAsUrl, setImageAsUrl ] = useState(allinputs)
+    const [ name , setName ] = useState('')
+    const [ email , setEmail ] = useState('')
+    const [ phoneNumber , setPhoneNumber ] = useState('')
+    const [ cookieDesc , setCookieDesc ] = useState('')
 
     const handleImageAsFile = (event) => {
         const image = event.target.files[0]
         console.log( image, 'image')
         setImageAsFile(image)
+    }
+
+    const handleFirebaseUpload = (event) => {
+        const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile);
+        uploadTask.on('state_changed', console.log, console.error, () => {
+
+        })
+    }
+
+    const addRecord = () => {
+        fetch('https://decadent-dough.firebaseio.com/', {
+            method: 'POST',
+            headers: {
+                'Content-type': 'application/json'
+            },
+            body: JSON.stringify({
+                name: name,
+                email: email,
+                phoneNumber: phoneNumber,
+                cookieDesc: cookieDesc
+            })
+        }).then(response => console.log(response.json()))
     }
 
     // state = {
@@ -25,19 +51,19 @@ export default function OrderForm(props) {
     //     src: null,
     // }
 
-    // handleChange = (event) => {
-    //     let { name } = event.target
-    //     let value = event.target.value
-    //     this.setState({
-    //         [name]: value
-    //     })
-    // }
+    const handleChange = (event) => {
+        let { name } = event.target
+        let value = event.target.value
+        this.setState({
+            [name]: value
+        })
+    }
 
     const handleSubmit = (event) => {
         console.log(imageAsFile)
         event.preventDefault()
+        addRecord(event)
         props.addOrder()
-        // this.resetState()
     }
 
     // resetState = () => {
@@ -59,9 +85,10 @@ export default function OrderForm(props) {
     return (
         <div>
             <form onSubmit={handleSubmit} >
-                <input name="name"  placeholder='Name...' onChange={()=>{}} />
-                <input name="phoneNumber"  placeholder='Phone Number (555-555-5555)' onChange={()=>{}} />
-                <input type="textarea" />
+                <input name="name" value={name} placeholder='Name...' onChange={handleChange} />
+                <input name="name" value={email} placeholder='Email...' onChange={handleChange} />
+                <input name="phoneNumber" value={phoneNumber} placeholder='Phone Number (555-555-5555)' onChange={handleChange} />
+                <input type="textarea" value={cookieDesc} onChange={handleChange} />
                 <input type="file" multiple onChange={handleImageAsFile} />
                 <input type="submit" placeholder="Submit Order" />
             </form>
