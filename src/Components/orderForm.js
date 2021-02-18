@@ -54,9 +54,6 @@ export default function OrderForm(props) {
     const handleChange = (event) => {
         let { name } = event.target
         let value = event.target.value
-        this.setState({
-            [name]: value
-        })
     }
 
     const handleSubmit = (event) => {
