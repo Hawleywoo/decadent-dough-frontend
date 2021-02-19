@@ -1,14 +1,29 @@
 import React, { useState } from 'react'
+import useCustomForm from '../Hooks/useOrderForm'
 import { storage } from '../firebase'
 
-const initialState = {
+const initialValues = {
     name: '',
     phoneNumber: '',
+    email: '',
+    cookieDesc: '',
 }
 
 const allinputs = {imgUrl: ''}
 
 export default function OrderForm(props) {
+    const {
+        values,
+        errors,
+        touched,
+        handleChange,
+        handleBlur,
+        handleSubmit
+    } = useCustomForm({ 
+            initialValues,
+            onSubmit: values => console.log({ values })
+        });
+
     const [ imageAsFile, setImageAsFile ] = useState({})
     const [ imageAsUrl, setImageAsUrl ] = useState(allinputs)
     const [ name , setName ] = useState('')
@@ -22,27 +37,27 @@ export default function OrderForm(props) {
         setImageAsFile(image)
     }
 
-    const handleFirebaseUpload = (event) => {
-        const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile);
-        uploadTask.on('state_changed', console.log, console.error, () => {
+    // const handleFirebaseUpload = (event) => {
+    //     const uploadTask = storage.ref(`/images/${imageAsFile.name}`).put(imageAsFile);
+    //     uploadTask.on('state_changed', console.log, console.error, () => {
 
-        })
-    }
+    //     })
+    // }
 
-    const addRecord = () => {
-        fetch('https://decadent-dough.firebaseio.com/', {
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json'
-            },
-            body: JSON.stringify({
-                name: name,
-                email: email,
-                phoneNumber: phoneNumber,
-                cookieDesc: cookieDesc
-            })
-        }).then(response => console.log(response.json()))
-    }
+    // const addRecord = () => {
+    //     fetch('https://decadent-dough.firebaseio.com/', {
+    //         method: 'POST',
+    //         headers: {
+    //             'Content-type': 'application/json'
+    //         },
+    //         body: JSON.stringify({
+    //             name: name,
+    //             email: email,
+    //             phoneNumber: phoneNumber,
+    //             cookieDesc: cookieDesc
+    //         })
+    //     }).then(response => console.log(response.json()))
+    // }
 
     // state = {
     //     name: '',
@@ -51,17 +66,17 @@ export default function OrderForm(props) {
     //     src: null,
     // }
 
-    const handleChange = (event) => {
-        let { name } = event.target
-        let value = event.target.value
-    }
+    // const handleChange = (event) => {
+    //     let { name } = event.target
+    //     let value = event.target.value
+    // }
 
-    const handleSubmit = (event) => {
-        console.log(imageAsFile)
-        event.preventDefault()
-        addRecord(event)
-        props.addOrder()
-    }
+    // const handleSubmit = (event) => {
+    //     console.log(imageAsFile)
+    //     event.preventDefault()
+    //     addRecord(event)
+    //     props.addOrder()
+    // }
 
     // resetState = () => {
     //     this.setState(initialState)
@@ -82,10 +97,10 @@ export default function OrderForm(props) {
     return (
         <div>
             <form onSubmit={handleSubmit} >
-                <input name="name" value={name} placeholder='Name...' onChange={handleChange} />
-                <input name="name" value={email} placeholder='Email...' onChange={handleChange} />
-                <input name="phoneNumber" value={phoneNumber} placeholder='Phone Number (555-555-5555)' onChange={handleChange} />
-                <input type="textarea" value={cookieDesc} onChange={handleChange} />
+                <input name="name" value={values.name} placeholder='Name...' onChange={handleChange} />
+                <input name="email" value={values.email} placeholder='Email...' onChange={handleChange} />
+                <input name="phoneNumber" value={values.phoneNumber} placeholder='Phone Number (555-555-5555)' onChange={handleChange} />
+                <input type="textarea" value={values.cookieDesc} onChange={handleChange} />
                 <input type="file" multiple onChange={handleImageAsFile} />
                 <input type="submit" placeholder="Submit Order" />
             </form>
