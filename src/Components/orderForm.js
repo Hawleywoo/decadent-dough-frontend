@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import useCustomForm from '../Hooks/useOrderForm'
-import { storage } from '../firebase'
+import { fbStorage, fbFirestore } from '../firebase'
 
 const initialValues = {
     name: '',
@@ -21,7 +21,16 @@ export default function OrderForm(props) {
         handleSubmit
     } = useCustomForm({ 
             initialValues,
-            onSubmit: values => console.log({ values })
+            onSubmit: values => {
+                fbFirestore.collection('orders').add({
+                    name: values.name,
+                    email: values.email,
+                    phoneNumber: values.phoneNumber,
+                    cookieDesc: values.cookieDesc
+                }).then((docRef) => {
+                    console.log(docRef)
+                }).catch((error) => console.error(error))
+            }
         });
 
     const [ imageAsFile, setImageAsFile ] = useState({})
