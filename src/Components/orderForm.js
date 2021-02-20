@@ -7,6 +7,7 @@ const initialValues = {
     phoneNumber: '',
     email: '',
     cookieDesc: '',
+    pickupDate: new Date(),
 }
 
 const allinputs = {imgUrl: ''}
@@ -21,15 +22,19 @@ export default function OrderForm(props) {
         handleSubmit
     } = useCustomForm({ 
             initialValues,
-            onSubmit: values => {
+            onSubmit: formValues => {
+                const { values } = formValues
+                console.log(pickupDate)
                 fbFirestore.collection('orders').add({
                     name: values.name,
                     email: values.email,
                     phoneNumber: values.phoneNumber,
-                    cookieDesc: values.cookieDesc
+                    cookieDesc: values.cookieDesc,
+                    pickupDate: values.pickupDate,
+                    imageUrl: 'something'
                 }).then((docRef) => {
-                    console.log(docRef)
-                }).catch((error) => console.error(error))
+                    console.log(docRef.id)
+                }).catch((error) => console.error(error, errors))
             }
         });
 
@@ -39,6 +44,7 @@ export default function OrderForm(props) {
     const [ email , setEmail ] = useState('')
     const [ phoneNumber , setPhoneNumber ] = useState('')
     const [ cookieDesc , setCookieDesc ] = useState('')
+    const [ pickupDate, setPickupDate ] = useState(new Date())
 
     const handleImageAsFile = (event) => {
         const image = event.target.files[0]
@@ -109,7 +115,8 @@ export default function OrderForm(props) {
                 <input name="name" value={values.name} placeholder='Name...' onChange={handleChange} />
                 <input name="email" value={values.email} placeholder='Email...' onChange={handleChange} />
                 <input name="phoneNumber" value={values.phoneNumber} placeholder='Phone Number (555-555-5555)' onChange={handleChange} />
-                <input type="textarea" value={values.cookieDesc} onChange={handleChange} />
+                <input type="textarea" name="cookieDesc" value={values.cookieDesc} onChange={handleChange} />
+                <input type="date" name="pickupDate" value={values.pickupDate} onChange={handleChange} />
                 <input type="file" multiple onChange={handleImageAsFile} />
                 <input type="submit" placeholder="Submit Order" />
             </form>
@@ -117,4 +124,4 @@ export default function OrderForm(props) {
             <p>You will recieve an email once the order is recieved.</p>
         </div>
     )
-}  
+} 

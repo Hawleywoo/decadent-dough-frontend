@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import ErrorAlert from './errorAlert'
 import { Link, useHistory} from 'react-router-dom'
 import { useAuth } from '../Contexts/authContext'
+import OrdersContainer from './ordersContainer'
 
 export default function Dashboard(){
     const [error, setError] = useState('')
@@ -27,6 +28,7 @@ export default function Dashboard(){
                 <span>Email: {currentUser.email}</span>
                 <Link to='/update-profile' > Update Profile </Link>
                 <Link to='/signup' onClick={handleLogout} > Log Out</Link>
+                <OrdersContainer />
             </div>
         </div>
     )
