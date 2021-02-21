@@ -87,9 +87,6 @@
   margin-left: auto;
   margin-right: auto;
   width: 75vw;
-  border-style: solid; 
-  border-color: black;
-  border-width: 10px;
 }
 
 .uploaded-image{
@@ -112,4 +109,8 @@
 .signUp{
   display: flex;
   flex-direction: column;
+}
+
+.cookie-description {
+  height: 5em;
 }

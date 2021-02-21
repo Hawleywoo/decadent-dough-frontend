@@ -104,12 +104,18 @@ export default function OrderForm(props) {
 
     return (
         <div>
-            <form onSubmit={handleSubmit} >
+            <form className="card" onSubmit={handleSubmit} >
+                <label>Name</label>
                 <input name="name" value={values.name} placeholder='Name...' onChange={handleChange} />
+                <label>Email</label>
                 <input name="email" value={values.email} placeholder='Email...' onChange={handleChange} />
+                <label>Phone Number</label>
                 <input name="phoneNumber" value={values.phoneNumber} placeholder='Phone Number (555-555-5555)' onChange={handleChange} />
-                <input type="textarea" name="cookieDesc" value={values.cookieDesc} onChange={handleChange} />
+                <label>Cookie Description</label>
+                <input type="textarea" className="cookie-description" name="cookieDesc" value={values.cookieDesc} onChange={handleChange} />
+                <label>Pick Up Date</label>
                 <input type="date" name="pickupDate" value={values.pickupDate}  onChange={handleChange} required/>
+                <label>Inspiration Photos</label>
                 <input type="file" multiple onChange={handleImageAsFile} />
                 <input type="submit" placeholder="Submit Order" />
             </form>

@@ -12,7 +12,8 @@ import UpdateProfile from './Components/Authentication/updateProfile'
 import {
   BrowserRouter as Router,
   Route,
-  Switch
+  Switch,
+  Link
 } from 'react-router-dom'
 import { AuthProvider } from './Contexts/authContext'
 
@@ -61,9 +62,11 @@ class App extends React.Component {
             <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
             <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
             <div>
-              <a>pricing sheet</a>
-              <a>order cookies</a>
-              <OrderForm addOrder={this.addOrder} />
+              <Link to='/login/order_cookies' >Order Cookies</Link>
+              <Link to='/login/order_cookies' >Pricing Sheet</Link>
+              <Switch>
+                <Route path='/login/order_cookies' component={OrderForm} />
+              </Switch>
             </div>
             <AuthProvider>
               <Switch>
