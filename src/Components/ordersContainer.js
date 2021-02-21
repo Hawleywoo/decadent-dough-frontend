@@ -7,8 +7,9 @@ export default function OrdersContainer() {
 
     const ordersList = () => {
         return orders.map((order)=>{
-            console.log(order)
-            return <Order order={order} />
+            return (
+                <Order order={order} />
+            )
         })
     }
 
@@ -16,13 +17,12 @@ export default function OrdersContainer() {
         fbFirestore.collection('orders').onSnapshot(snapshot => {
             setOrders(snapshot.docs.map(doc => doc.data()))
         })
-        let docss = fbFirestore.collection('orders').get()
-        console.log(docss)
+
     }, [])
 
     return(
-        <div>
-            {ordersList}
+        <div className="ordersList" >
+            {ordersList()}
         </div>
     )
 }

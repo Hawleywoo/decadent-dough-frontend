@@ -24,7 +24,6 @@ export default function OrderForm(props) {
             initialValues,
             onSubmit: formValues => {
                 const { values } = formValues
-                console.log(pickupDate)
                 fbFirestore.collection('orders').add({
                     name: values.name,
                     email: values.email,
@@ -40,11 +39,6 @@ export default function OrderForm(props) {
 
     const [ imageAsFile, setImageAsFile ] = useState({})
     const [ imageAsUrl, setImageAsUrl ] = useState(allinputs)
-    const [ name , setName ] = useState('')
-    const [ email , setEmail ] = useState('')
-    const [ phoneNumber , setPhoneNumber ] = useState('')
-    const [ cookieDesc , setCookieDesc ] = useState('')
-    const [ pickupDate, setPickupDate ] = useState(new Date())
 
     const handleImageAsFile = (event) => {
         const image = event.target.files[0]
@@ -108,7 +102,6 @@ export default function OrderForm(props) {
 
     // }
 
-
     return (
         <div>
             <form onSubmit={handleSubmit} >
@@ -116,7 +109,7 @@ export default function OrderForm(props) {
                 <input name="email" value={values.email} placeholder='Email...' onChange={handleChange} />
                 <input name="phoneNumber" value={values.phoneNumber} placeholder='Phone Number (555-555-5555)' onChange={handleChange} />
                 <input type="textarea" name="cookieDesc" value={values.cookieDesc} onChange={handleChange} />
-                <input type="date" name="pickupDate" value={values.pickupDate} onChange={handleChange} />
+                <input type="date" name="pickupDate" value={values.pickupDate}  onChange={handleChange} required/>
                 <input type="file" multiple onChange={handleImageAsFile} />
                 <input type="submit" placeholder="Submit Order" />
             </form>

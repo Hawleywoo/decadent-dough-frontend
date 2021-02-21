@@ -1,13 +1,15 @@
 import React from 'react'
 
-export default function Order({name, email, cookieDesc, phoneNumber, pickupDate, imageUrl}){
+export default function Order( { order: { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl} } ){
+    // const { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl} = order
+    // console.log(name, pickupDate)
     return (
         <div>
-            <h4>Name: {name}</h4>
-            <h4>Email: {email}</h4>
-            <h4>Phone Number: {phoneNumber}</h4>
-            <h4>Cookies: {cookieDesc}</h4>
-            <h4>Pickup Date: {cookieDesc}</h4>
+            <p>Name: {name}</p>
+            <p>Email: {email}</p>
+            <p>Phone Number: {phoneNumber}</p>
+            <p>Cookie description: {cookieDesc}</p>
+            {/* <p>Pickup Date: {pickupDate}</p> */}
         </div>
     )
 }

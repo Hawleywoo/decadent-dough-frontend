@@ -4,7 +4,6 @@ import OrderForm from './Components/orderForm'
 import React from 'react'
 import BodySection from './Components/bodySection'
 import Login from './Components/Authentication/login'
-import OrdersContainer from './Components/ordersContainer'
 import SignUp from './Components/Authentication/signUp'
 import Dashboard from './Components/dashboard'
 import PrivateRoute from './Components/Authentication/privateRoute'
@@ -12,7 +11,6 @@ import ForgotPassword from './Components/Authentication/forgotPassword'
 import UpdateProfile from './Components/Authentication/updateProfile'
 import {
   BrowserRouter as Router,
-  Link,
   Route,
   Switch
 } from 'react-router-dom'
@@ -56,7 +54,8 @@ class App extends React.Component {
       <div className="App">
         <Header />
         <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" />
-        <hr></hr>
+        <h2>Welcome or Something Else</h2>
+        <hr className="hr hr__full" style={{width:'60vw'}} ></hr>
         <Router>
           <div className="main-body">
             <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
