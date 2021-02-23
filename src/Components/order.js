@@ -4,7 +4,7 @@ export default function Order( { order: { name, phoneNumber, email, cookieDesc, 
     // const { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl} = order
     // console.log(name, pickupDate)
     return (
-        <div>
+        <div className="order" >
             <p>Name: {name}</p>
             <p>Email: {email}</p>
             <p>Phone Number: {phoneNumber}</p>

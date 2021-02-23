@@ -114,3 +114,10 @@
 .cookie-description {
   height: 5em;
 }
+
+.order{
+  display: flex;
+  justify-content: space-evenly;
+  background-color: hsla(20, 1%, 99%, 1);
+  margin: 1em;
+}
