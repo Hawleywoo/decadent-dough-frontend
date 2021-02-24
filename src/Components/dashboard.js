@@ -27,7 +27,7 @@ export default function Dashboard(){
                 {error && <ErrorAlert error={error} />}
                 <span>Email: {currentUser.email}</span>
                 <Link to='/update-profile' > Update Profile </Link>
-                <Link to='/signup' onClick={handleLogout} > Log Out</Link>
+                <Link to='/login' onClick={handleLogout} > Log Out</Link>
                 <OrdersContainer />
             </div>
         </div>

@@ -9,6 +9,7 @@ export default function Order( { order: { name, phoneNumber, email, cookieDesc, 
             <p>Email: {email}</p>
             <p>Phone Number: {phoneNumber}</p>
             <p>Cookie description: {cookieDesc}</p>
+            <p>Pickup Date: {pickupDate}</p>
             {/* <p>Pickup Date: {pickupDate}</p> */}
         </div>
     )
