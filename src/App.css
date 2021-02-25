@@ -123,7 +123,7 @@
 }
 
 .image-title{
-
+  position: relative;
 }
 
 .cookie-title{
@@ -133,11 +133,13 @@
   height: 2em;
   background-color: hsla(329, 28%, 73%, .9);
   border-color: white;
+  font-size: 74%;
+  text-align: center;
   border-style: solid;
-  position: relative;
+  position: absolute;
   margin-bottom: 1em;
   margin-top: 0;
-  top: -50px;
+  bottom: 0px;
   width: 60%;
   left: 20%;
 }
