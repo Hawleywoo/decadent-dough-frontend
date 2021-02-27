@@ -10,6 +10,7 @@ import PrivateRoute from './Components/Authentication/privateRoute'
 import ForgotPassword from './Components/Authentication/forgotPassword'
 import UpdateProfile from './Components/Authentication/updateProfile'
 import PriceSheet from './Components/priceSheet'
+import HeroCarousel from './Components/heroCarousel';
 import {
   BrowserRouter as Router,
   Route,
@@ -29,7 +30,8 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" />
+      <HeroCarousel />
+      {/* <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" /> */}
       <h2>Welcome or Something Else</h2>
       <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
       <div className="main-body">
@@ -37,9 +39,11 @@ function App() {
         <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
         <Router>
           <div>
-            <Link to='/home' >Order Cookies</Link>
-            <Link to='/price_sheet' >Pricing Sheet</Link>
-            <Link to='/work' >Previous work</Link>
+            <ul className='ul__nav'>
+              <li><Link to='/home' >Order Cookies</Link></li>
+              <li><Link to='/price_sheet' >Pricing Sheet</Link></li>
+              <li><Link to='/work' >Previous work</Link></li>
+            </ul>
             <Switch>
               <Route path='/home' exact component={OrderForm} />
               <Route path='/price_sheet' exact component={PriceSheet} />
@@ -49,7 +53,7 @@ function App() {
         </Router>
         <Router>
           <AuthProvider>
-            
+
             <Switch>
               <PrivateRoute exact path='/' component={Dashboard} />
               <PrivateRoute path='/update-profile' component={UpdateProfile} />
