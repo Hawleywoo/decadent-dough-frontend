@@ -29,40 +29,43 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <HeroCarousel />
       {/* <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" /> */}
-      <h2>Welcome or Something Else</h2>
-      <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
-      <div className="main-body">
-        <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
-        <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
-        <Router>
-          <div>
-            <ul className='ul__nav'>
-              <li><Link to='/home' >Order Cookies</Link></li>
-              <li><Link to='/price_sheet' >Pricing Sheet</Link></li>
-              <li><Link to='/work' >Previous work</Link></li>
-            </ul>
-            <Switch>
-              <Route path='/home' exact component={OrderForm} />
-              <Route path='/price_sheet' exact component={PriceSheet} />
-              <Route path='/work' exact component={() => { }} />
-            </Switch>
-          </div>
-        </Router>
-        <Router>
-          <AuthProvider>
 
-            <Switch>
-              <PrivateRoute exact path='/' component={Dashboard} />
-              <PrivateRoute path='/update-profile' component={UpdateProfile} />
-              <Route path={`/signup`} component={SignUp} />
-              <Route path={`/login`} component={Login} />
-              <Route path={`/forgot-password`} component={ForgotPassword} />
-            </Switch>
-          </AuthProvider>
-        </Router>
+      <div className="lower-section" >
+        <h2>Welcome or Something Else</h2>
+        <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
+        <div className="main-body">
+          <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
+          <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
+          <Router>
+            <div>
+              <ul className='ul__nav'>
+                <li><Link to='/home' >Order Cookies</Link></li>
+                <li><Link to='/price_sheet' >Pricing Sheet</Link></li>
+                <li><Link to='/work' >Previous work</Link></li>
+              </ul>
+              <Switch>
+                <Route path='/home' exact component={OrderForm} />
+                <Route path='/price_sheet' exact component={PriceSheet} />
+                <Route path='/work' exact component={() => { }} />
+              </Switch>
+            </div>
+          </Router>
+          <Router>
+            <AuthProvider>
+
+              <Switch>
+                <PrivateRoute exact path='/' component={Dashboard} />
+                <PrivateRoute path='/update-profile' component={UpdateProfile} />
+                <Route path={`/signup`} component={SignUp} />
+                <Route path={`/login`} component={Login} />
+                <Route path={`/forgot-password`} component={ForgotPassword} />
+              </Switch>
+            </AuthProvider>
+          </Router>
+        </div>
       </div>
     </div>
   );
