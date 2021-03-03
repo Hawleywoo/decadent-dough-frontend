@@ -149,6 +149,27 @@ ul{
 }
 
 .hero__slide__image{
-  position: absolute;
+  width: 1000px;
+  height: 600px;
+  border-radius: 10px;
+}
 
+.right-arrow{
+  font-size: 2em;
+  position: absolute;
+  right: 90px;
+  z-index: 100;
+  color: aliceblue;
+  border-radius: 50%;
+  box-shadow: 1px 1px 6px black;
+}
+
+.left-arrow{
+  font-size: 2em;
+  position: absolute;
+  left: 10px;
+  z-index: 100;
+  color: aliceblue;
+  border-radius: 50%;
+  box-shadow: 1px 1px 6px black;
 }

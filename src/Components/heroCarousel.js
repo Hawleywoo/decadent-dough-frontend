@@ -17,7 +17,7 @@ export default function HeroCarousel() {
     return (
         <section className="hero" >
             <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-            <FaArrowAltCircleRight className="left-arrow" onClick={prevSlide} />
+            <FaArrowAltCircleRight className="right-arrow" onClick={prevSlide} />
             <HeroSlide imgSrc={BeeCookie} />
             <HeroSlide imgSrc={AnimalCookies} />
             <HeroSlide imgSrc={CNYCookies} />
