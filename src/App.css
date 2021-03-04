@@ -10,11 +10,6 @@ ul{
   
 }
 
-
-.lower-section{
-  margin-top: 100vh;
-}
-
 .ul__nav{
   list-style-type: none;
 }
@@ -138,20 +133,34 @@ ul{
 .hero{
   position: relative;
   height: 100vh;
+  width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .hero__slide{
   position: relative;
   display: flex;
+  opacity: 0;
+  transition-duration: 1s ease ;
 }
 
 .hero__slide__image{
-  width: 1000px;
-  height: 600px;
+  /* width: 1000px; */
+  height: auto;
+  max-height:100%;
+  max-width:100%;
+  vertical-align:middle;
   border-radius: 10px;
+}
+
+.hero__slide__image--active{
+  opacity: 1;
+  transition-duration: 1.5s;
+  transform: scale(1.08);
 }
 
 .right-arrow{

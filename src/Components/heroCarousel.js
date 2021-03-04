@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import HeroSlide from './heroSlide'
 import { FaArrowAltCircleRight, FaArrowAltCircleLeft } from 'react-icons/fa'
 import BeeCookie from '../images/Cookies/bee_cookies.jpg'
@@ -11,16 +11,27 @@ export default function HeroCarousel() {
     const length = slides.length
 
     const prevSlide = () => {
-        return
+        setCurrent(current === 0 ? length - 1 : current - 1)
     }
+
+    const nextSlide = () => {
+        setCurrent(current === length - 1 ? 0 : current + 1)
+        
+    }
+
+    useEffect(()=> {      
+        setTimeout(nextSlide , 10000)
+    },[current])
 
     return (
         <section className="hero" >
-            <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
-            <FaArrowAltCircleRight className="right-arrow" onClick={prevSlide} />
-            <HeroSlide imgSrc={BeeCookie} />
-            <HeroSlide imgSrc={AnimalCookies} />
-            <HeroSlide imgSrc={CNYCookies} />
+            {/* <FaArrowAltCircleLeft className="left-arrow" onClick={prevSlide} />
+            <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} /> */}
+            { slides.map((slide, index) => {
+                return (
+                        <HeroSlide imgSrc={slide} index={index} current={current} />
+                )
+            })}
 
 
             {/* <div className="hero__nav js-nav" >
