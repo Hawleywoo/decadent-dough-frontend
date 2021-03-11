@@ -6,19 +6,25 @@ export default function OrdersContainer() {
     const [orders, setOrders] = useState([])
 
     const ordersList = () => {
-        return orders.map((order)=>{
+        return orders.map(({order, id}) => {
             return (
-                <Order order={order} />
+                <Order key={id} order={order} />
             )
         })
     }
 
     useEffect(()=> {
         fbFirestore.collection('orders').onSnapshot(snapshot => {
-            setOrders(snapshot.docs.map(doc => doc.data()))
+            setOrders(snapshot.docs.map(doc => {
+                return (
+                    {
+                        id: doc.id,
+                        order: doc.data()
+                    }
+                )
+            }) )
         })
-
-    }, [])
+    })
 
     return(
         <div className="ordersList" >

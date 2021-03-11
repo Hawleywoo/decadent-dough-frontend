@@ -11,8 +11,22 @@ ul{
 }
 
 .ul__nav{
+  margin: 5em auto 0;
+  padding: 10px;
+  display: flex;
+  width: 60vw;
+  justify-content: center;
+  align-items: center;
+  border-style: solid none;
+  border-color: black;
+  border-width:1px;
   list-style-type: none;
 }
+
+/* .main-body__displayed--nav{
+  display: flex;
+  justify-content: center;
+} */
 
 .App-header {
   background-color: #282c34;
@@ -28,7 +42,6 @@ ul{
 .header{
   display: flex;
   justify-content: center;
-  box-shadow:  5px 5px 10px black;
   z-index: 10;
   position: fixed;
   left: 0px;
@@ -181,4 +194,40 @@ ul{
   color: aliceblue;
   border-radius: 50%;
   box-shadow: 1px 1px 6px black;
+}
+
+.dashboard{
+  margin-bottom: 10em;
+}
+
+.orderform{
+  position: relative
+}
+
+.orderform__modal{
+  position: absolute;
+  width: 30%;
+  border-style: solid;
+  border-width: 2px;
+  top: 50%;
+  border-color: black;
+  left: 50%;
+  background: white;
+  opacity: .8;
+}
+
+.modal__button{
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.modal__button--close{
+  margin: 10px;
+  position: absolute;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px #504f4f;
+  transform: rotate(45deg);
+  width: 21px;
+  opacity: .8;
 }

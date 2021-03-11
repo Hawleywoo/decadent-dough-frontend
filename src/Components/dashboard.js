@@ -22,7 +22,7 @@ export default function Dashboard(){
 
     return (
         <div>
-            <div>
+            <div className="dashboard" >
                 <h2>Profile</h2>
                 {error && <ErrorAlert error={error} />}
                 <span>Email: {currentUser.email}</span>

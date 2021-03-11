@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import useCustomForm from '../Hooks/useOrderForm'
 import { fbStorage, fbFirestore } from '../firebase'
+import Modal from './modal'
 
 const initialValues = {
     name: '',
@@ -39,6 +40,8 @@ export default function OrderForm(props) {
 
     const [ imageAsFile, setImageAsFile ] = useState({})
     const [ imageAsUrl, setImageAsUrl ] = useState(allinputs)
+    const [ open, setOpen ] = useState(false)
+    const [ confirm, setConfirm ] = useState(false)
 
     const handleImageAsFile = (event) => {
         const image = event.target.files[0]
@@ -80,12 +83,11 @@ export default function OrderForm(props) {
     //     let value = event.target.value
     // }
 
-    // const handleSubmit = (event) => {
-    //     console.log(imageAsFile)
-    //     event.preventDefault()
-    //     addRecord(event)
-    //     props.addOrder()
-    // }
+    const handleSubmitConfirm = (event) => {
+        event.preventDefault()
+        setOpen(true)
+        if(confirm === true) handleSubmit()
+    }
 
     // resetState = () => {
     //     this.setState(initialState)
@@ -102,8 +104,14 @@ export default function OrderForm(props) {
 
     // }
 
+    const handleClose = () => {
+        setOpen(false)
+    }
+
     return (
-        <div>
+        <div className="orderform" >
+            {open && <Modal handleClose={handleClose} />}
+            <button onClick={() => setOpen(true)} />
             <form className="card" onSubmit={handleSubmit} >
                 <label>Name</label>
                 <input name="name" value={values.name} placeholder='Name...' onChange={handleChange} />

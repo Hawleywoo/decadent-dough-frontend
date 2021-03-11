@@ -15,13 +15,6 @@ export default function Login(){
 
     const { login } = useAuth()
 
-
-    const handleChange = (event) => {
-        // this.setState({
-        //     [event.target.name]: event.target.value
-        // })
-    }
-
     const handleSubmit = async (event) => {
         event.preventDefault()
 
@@ -42,9 +35,9 @@ export default function Login(){
                 {error && <ErrorAlert error={error} />}
                 <form className="signUp" onSubmit={handleSubmit} >
                     <label>Email</label>
-                    <input name="email" ref={emailRef}  placeholder="Email" onChange={handleChange} required/>
+                    <input name="email" ref={emailRef}  placeholder="Email"  required/>
                     <label>Password</label>
-                    <input name="password" ref={passwordRef}  type="password"  placeholder="Password..." onChange={handleChange} required/>
+                    <input name="password" ref={passwordRef}  type="password"  placeholder="Password..."  required/>
                     <input type="submit" disabled={loading} value="Login" />
                 </form>
                 <div>

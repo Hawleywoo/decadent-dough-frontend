@@ -19,6 +19,8 @@ import {
   useRouteMatch
 } from 'react-router-dom'
 import { AuthProvider } from './Contexts/authContext'
+import FloralBabyCookies from './images/Cookies/floral_baby_cookies.jpg'
+import GreenLingerieCookies from './images/Cookies/green_lingerie_cookies.jpg'
 
 
 const aboutUs = "this is some stuff about me and how i make awesome cookies and shit. Blah blah blah"
@@ -37,10 +39,10 @@ function App() {
         <h2>Welcome or Something Else</h2>
         <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
         <div className="main-body">
-          <BodySection order={1} title="About Me" description={aboutUs} imageSource="https://annabanana.co/wp-content/uploads/2020/03/Easter-Sugar-Cookies-23.jpg" />
-          <BodySection order={2} title="Something Else" description={nextSection} imageSource="https://4.bp.blogspot.com/-SjHtd1ecT1Y/XF8Y8oH-e4I/AAAAAAACv6A/JTUIIk4NqUA2Qb0x8ywOmK75KwA-bUmowCLcBGAs/s1600/Heart%2BShaped%2BLofthouse%2BStyle%2BSugar%2BCookies.jpg" />
+          <BodySection order={1} title="About Me" description={aboutUs} imageSource={FloralBabyCookies} />
+          <BodySection order={2} title="Something Else" description={nextSection} imageSource={GreenLingerieCookies} />
           <Router>
-            <div>
+            <div className="main-body__displayed" >
               <ul className='ul__nav'>
                 <li><Link to='/home' >Order Cookies</Link></li>
                 <li><Link to='/price_sheet' >Pricing Sheet</Link></li>
@@ -55,7 +57,6 @@ function App() {
           </Router>
           <Router>
             <AuthProvider>
-
               <Switch>
                 <PrivateRoute exact path='/' component={Dashboard} />
                 <PrivateRoute path='/update-profile' component={UpdateProfile} />

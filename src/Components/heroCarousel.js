@@ -29,7 +29,7 @@ export default function HeroCarousel() {
             <FaArrowAltCircleRight className="right-arrow" onClick={nextSlide} /> */}
             { slides.map((slide, index) => {
                 return (
-                        <HeroSlide imgSrc={slide} index={index} current={current} />
+                        <HeroSlide imgSrc={slide} key={index} index={index} current={current} />
                 )
             })}
 
