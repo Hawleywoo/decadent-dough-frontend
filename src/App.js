@@ -31,8 +31,8 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
       <HeroCarousel />
+      <Header />
       {/* <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" /> */}
 
       <div className="lower-section" >
@@ -43,11 +43,13 @@ function App() {
           <BodySection order={2} title="Something Else" description={nextSection} imageSource={GreenLingerieCookies} />
           <Router>
             <div className="main-body__displayed" >
-              <ul className='ul__nav'>
-                <li><Link to='/home' >Order Cookies</Link></li>
-                <li><Link to='/price_sheet' >Pricing Sheet</Link></li>
-                <li><Link to='/work' >Previous work</Link></li>
-              </ul>
+              <div className="main-body__displayed--nav" >
+                <ul className='ul__nav'>
+                  <li><Link to='/home' >Order Cookies</Link></li>
+                  <li><Link to='/price_sheet' >Pricing Sheet</Link></li>
+                  <li><Link to='/work' >Previous work</Link></li>
+                </ul>
+              </div>
               <Switch>
                 <Route path='/home' exact component={OrderForm} />
                 <Route path='/price_sheet' exact component={PriceSheet} />

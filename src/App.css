@@ -9,6 +9,13 @@
 ul{
   
 }
+.header__parent{
+  position: sticky;
+}
+
+a {
+  text-decoration: none;
+}
 
 .ul__nav{
   margin: 5em auto 0;
@@ -23,10 +30,7 @@ ul{
   list-style-type: none;
 }
 
-/* .main-body__displayed--nav{
-  display: flex;
-  justify-content: center;
-} */
+
 
 .App-header {
   background-color: #282c34;
@@ -117,6 +121,8 @@ ul{
 .order{
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
+  overflow: auto;
   background-color: hsla(20, 1%, 99%, 1);
   margin: 1em;
 }
@@ -145,8 +151,8 @@ ul{
 
 .hero{
   position: relative;
-  height: 100vh;
-  width: 100vw;
+  /* height: 100vh; */
+  width: 75%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -162,7 +168,6 @@ ul{
 }
 
 .hero__slide__image{
-  /* width: 1000px; */
   height: auto;
   max-height:100%;
   max-width:100%;
@@ -174,26 +179,6 @@ ul{
   opacity: 1;
   transition-duration: 1.5s;
   transform: scale(1.08);
-}
-
-.right-arrow{
-  font-size: 2em;
-  position: absolute;
-  right: 90px;
-  z-index: 100;
-  color: aliceblue;
-  border-radius: 50%;
-  box-shadow: 1px 1px 6px black;
-}
-
-.left-arrow{
-  font-size: 2em;
-  position: absolute;
-  left: 10px;
-  z-index: 100;
-  color: aliceblue;
-  border-radius: 50%;
-  box-shadow: 1px 1px 6px black;
 }
 
 .dashboard{

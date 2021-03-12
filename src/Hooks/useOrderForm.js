@@ -32,10 +32,11 @@ export default function useOrderForm({ initialValues, onSubmit }) {
         setErrors({ ...errors })
     }
 
-    const handleSubmit = (event) => {
+    const handleSubmit = async (event) => {
         if(event) event.preventDefault();
         setErrors({ ...errors })
-        onSubmit({ values, errors })
+        await onSubmit({ values, errors })
+        setValues(initialValues)
     }
 
     return {
