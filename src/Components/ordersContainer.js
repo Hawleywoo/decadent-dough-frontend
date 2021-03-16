@@ -13,6 +13,7 @@ export default function OrdersContainer() {
                 <Order key={id} order={order} />
             )
         })
+    }
 
     const sortOrders = () => {
         return orders.sort((a,b) => {
