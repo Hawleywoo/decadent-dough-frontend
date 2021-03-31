@@ -51,9 +51,9 @@ function App() {
                 </ul>
               </div>
               <Switch>
-                <Route path='/home' exact component={OrderForm} />
-                <Route path='/price_sheet' exact component={PriceSheet} />
-                <Route path='/work' exact component={() => { }} />
+                <Route path='/home' component={OrderForm} />
+                <Route path='/price_sheet' component={PriceSheet} />
+                <Route path='/work'  component={() => { }} />
               </Switch>
             </div>
           </Router>

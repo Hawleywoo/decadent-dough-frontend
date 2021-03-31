@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 
-export default function useOrderForm({ initialValues, onSubmit }) {
+export default function useCustomForm({ initialValues, onSubmit }) {
     const [ values, setValues ] = useState(initialValues || {})
     const [ errors, setErrors ] = useState({})
     const [ touched, setTouched ] = useState({})

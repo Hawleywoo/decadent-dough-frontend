@@ -1,12 +1,12 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState,  useEffect } from 'react'
 import HeroSlide from './heroSlide'
-import BeeCookie from '../images/Cookies/bee_cookies.jpg'
-import AnimalCookies from '../images/Cookies/cute_animals_cookies.jpg'
-import CNYCookies from '../images/Cookies/CNY_cookies.jpg'
+import ForrestBabyCookies from '../images/Cookies/Forrest_Baby_Cookies.jpg'
+import TeddyBearCookies from '../images/Cookies/Teddy_Bear_Baby_Cookies.jpg'
+import PinkBabyCookies from '../images/Cookies/Pink_Baby_Cookies.jpg'
 
 export default function HeroCarousel() {
     const [current, setCurrent] = useState(0)
-    const slides = new Array(BeeCookie, AnimalCookies, CNYCookies)
+    const slides = new Array(ForrestBabyCookies, TeddyBearCookies, PinkBabyCookies)
     const length = slides.length
 
     const prevSlide = () => {
@@ -18,8 +18,12 @@ export default function HeroCarousel() {
     }
 
     useEffect(()=> {      
-        setTimeout(nextSlide , 10000)
-    },[current])
+        let sliderTimer = setTimeout(nextSlide , 10000)
+        return function cleanUp(){
+            clearTimeout(sliderTimer)
+        }
+
+    })
 
     return (
         <section className="hero"  >

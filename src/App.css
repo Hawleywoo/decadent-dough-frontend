@@ -216,3 +216,17 @@ a {
   width: 21px;
   opacity: .8;
 }
+
+.price-sheet{
+
+}
+
+.price-sheet__main-container{
+  display: flex;
+  justify-content: center;
+}
+
+.price-sheet__main-container--images{
+  height: 20vh;
+  width: 10vw;
+}
