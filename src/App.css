@@ -30,8 +30,6 @@ a {
   list-style-type: none;
 }
 
-
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -50,11 +48,17 @@ a {
   position: fixed;
   left: 0px;
   top: 0px;
-  z-index: 1;
+  z-index: 2;
   width: 100vw;
-  opacity: .3;
-  background-color: hsl(0,0%,100%);
+  background-color: hsla(0,0%,100%, .3);
 }
+
+.head-logo{
+  height: 10em;
+  width: 14em;
+  opacity: 1;
+}
+
 
 .banner-img {
   width: 75vw;
@@ -75,6 +79,7 @@ a {
   display: flex;
 }
 
+
 .description{
   padding: 1.5em;
   width: 30vw;
@@ -84,6 +89,8 @@ a {
   padding: 1.5em;
   max-height: 45vw;
   max-width: 85%;
+  z-index: -1;
+  position: relative;
 }
 
 .main-body{
@@ -95,11 +102,6 @@ a {
 .uploaded-image{
   height: 10em;
   width: 10em;
-}
-
-.head-logo{
-  height: 10em;
-  width: 25em;
 }
 
 .card{
@@ -158,6 +160,7 @@ a {
   justify-content: center;
   overflow: hidden;
   white-space: nowrap;
+  margin: 0 auto;
 }
 
 .hero__slide{

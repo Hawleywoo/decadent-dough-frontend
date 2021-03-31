@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import logo from '../images/DD_new_logo.jpg'
+import logo from '../images/Decadent_Dough_trans.jpg'
 
 export default function Header (){
     const [ toggle, setToggle ] = useState(false)
