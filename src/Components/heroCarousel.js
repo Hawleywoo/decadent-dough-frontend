@@ -17,18 +17,12 @@ export default function HeroCarousel() {
         setCurrent(current === length - 1 ? 0 : current + 1)
     }
 
-    const handleScroll = (event) => {
-        console.log(event.target)
-        console.log(event.target.detail)
-        
-    }
-
     useEffect(()=> {      
         setTimeout(nextSlide , 10000)
     },[current])
 
     return (
-        <section className="hero"  onScroll={handleScroll} >
+        <section className="hero"  >
             { slides.map((slide, index) => {
                 return (
                         <HeroSlide imgSrc={slide} key={index} index={index} current={current} />
