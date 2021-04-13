@@ -23,9 +23,9 @@ import FloralBabyCookies from './images/Cookies/floral_baby_cookies.jpg'
 import GreenLingerieCookies from './images/Cookies/green_lingerie_cookies.jpg'
 
 
-const aboutUs = "this is some stuff about me and how i make awesome cookies and shit. Blah blah blah"
+const aboutUs = "I am a small local business in Denver Colorado.  Cookies are my passion and I love making unique custom cookie designs.  I take pride in designing and decorating all the creative and wonderfully fun cookie ideas."
 
-const nextSection = "her is some other stuff that i want here to talk about cookies and some more shit."
+const nextSection = "My process starts with consulting with you about the event, look, and feel you would love to eat!  Then I work on a few sketchs of design ideas.  Once the final design has been concocted I mix the dough and cut the cookies by hand.   "
 
 function App() {
 
@@ -36,11 +36,11 @@ function App() {
       {/* <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" /> */}
 
       <div className="lower-section" >
-        <h2>Welcome to Decadent Dough...</h2>
+        <h2 className="title"><span className="title--letter">W</span>elcome to <span className="title--letter">D</span>ecadent <span className="title--letter">D</span>ough!</h2>
         <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
         <div className="main-body">
           <BodySection order={1} title="About Me" description={aboutUs} imageSource={FloralBabyCookies} />
-          <BodySection order={2} title="Something Else" description={nextSection} imageSource={GreenLingerieCookies} />
+          <BodySection order={2} title="My Process" description={nextSection} imageSource={GreenLingerieCookies} />
           <Router>
             <div className="main-body__displayed" >
               <div className="main-body__displayed--nav" >
