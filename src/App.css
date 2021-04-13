@@ -53,6 +53,18 @@ a {
   width: 18vw;
   height: 18vw;
   background-color: hsla(0,0%,100%, .4);
+  -webkit-transition: all 500ms ease-out;
+  -moz-transition: all 500ms ease-out;
+  -o-transition: all 500ms ease-out;
+  transition: all 500ms ease-out;
+}
+
+.header__scrolled{
+  top: 0;
+  left: 0;
+  height: 21vh;
+  width: 100%;
+  border-radius: 0;
 }
 
 .head-logo{
