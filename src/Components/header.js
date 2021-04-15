@@ -34,7 +34,7 @@ export default function Header (){
     return(
         <div className="header__parent" >
             <header ref={headerRef} className={`header ${toggle ? '' : `header__scrolled`}`}>
-                <img src={logo} alt="Decadent Dough" className="head-logo"/>
+                <img src={logo} alt="Decadent Dough" className={`head-logo ${toggle ? '' : `head-logo--scrolled`}`}/>
             </header>
         </div>
         

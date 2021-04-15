@@ -6,7 +6,7 @@ export default function BodySection(props) {
             {props.order % 2 !== 0
                 ? <div className="description" >
                     <h3 className="description__title" ><b>{props.title}</b></h3>
-                    <hr />
+                    <hr className="hr"/>
                     <p>{props.description}</p>
                 </div>
                 : <div className="image-title" >
@@ -17,7 +17,7 @@ export default function BodySection(props) {
             {props.order % 2 == 0
                 ? <div className="description" >
                     <h3 className="description__title"><b>{props.title}</b></h3>
-                    <hr />
+                    <hr className="hr" />
                     <p>{props.description}</p>
                 </div>
                 : <div className="image-title">

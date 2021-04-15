@@ -6,7 +6,7 @@ import PinkBabyCookies from '../images/Cookies/Pink_Baby_Cookies.jpg'
 
 export default function HeroCarousel() {
     const [current, setCurrent] = useState(0)
-    const slides = new Array(ForrestBabyCookies, TeddyBearCookies, PinkBabyCookies)
+    const slides = [ForrestBabyCookies, TeddyBearCookies, PinkBabyCookies]
     const length = slides.length
 
     const prevSlide = () => {
@@ -18,7 +18,7 @@ export default function HeroCarousel() {
     }
 
     useEffect(()=> {      
-        let sliderTimer = setTimeout(nextSlide , 10000)
+        let sliderTimer = setTimeout(nextSlide , 3000)
         return function cleanUp(){
             clearTimeout(sliderTimer)
         }

@@ -11,6 +11,7 @@ import ForgotPassword from './Components/Authentication/forgotPassword'
 import UpdateProfile from './Components/Authentication/updateProfile'
 import PriceSheet from './Components/priceSheet'
 import HeroCarousel from './Components/heroCarousel';
+import { FaInstagram } from "react-icons/fa"
 import {
   BrowserRouter as Router,
   Route,
@@ -31,12 +32,13 @@ function App() {
 
   return (
     <div className="App">
+      <div className="social-media"><a className="social-media__link" href='https://www.instagram.com/decadent_dough/' target="_blank" rel="noreferrer noopener"><p>Follow us Here:</p> <FaInstagram /></a></div>
       <HeroCarousel />
       <Header />
       {/* <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" /> */}
 
       <div className="lower-section" >
-        <h2 className="title"><span className="title--letter">W</span>elcome to <span className="title--letter">D</span>ecadent <span className="title--letter">D</span>ough!</h2>
+        <h2 className="title"><span className="title--letter">W</span>elcome to <span className="title--letter">D</span>ecadent <span className="title--letter">D</span>ough</h2>
         <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
         <div className="main-body">
           <BodySection order={1} title="About Me" description={aboutUs} imageSource={FloralBabyCookies} />

@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
 
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 
 .App {
   text-align: center;
@@ -15,6 +22,22 @@ ul{
 
 a {
   text-decoration: none;
+}
+
+.hr{
+  margin: .5rem auto 1rem;
+  border: 1px solid hsla(329, 28%, 73%, .9);
+}
+
+.hr__order-price-sheet{
+  margin: .5rem auto 1rem;
+  width: 60vw;
+  align-content: center;
+  border: 1px solid hsla(329, 28%, 73%, .9);
+}
+
+.hr__full{
+  width: 60vw;
 }
 
 .ul__nav{
@@ -50,8 +73,8 @@ a {
   top: calc(40vh - 16vh);
   left: calc(50% - 9vw);
   border-radius: 50%;
-  width: 18vw;
-  height: 18vw;
+  width: 17rem;
+  height: 17rem;
   background-color: hsla(0,0%,100%, .4);
   -webkit-transition: all 500ms ease-out;
   -moz-transition: all 500ms ease-out;
@@ -62,15 +85,22 @@ a {
 .header__scrolled{
   top: 0;
   left: 0;
-  height: 21vh;
+  z-index: 10;
+  height: 13vh;
   width: 100%;
   border-radius: 0;
 }
 
 .head-logo{
-  height: 10em;
-  width: 14em;
+  height: 10rem;
+  width: 14rem;
   opacity: 1;
+  transition: all 1s ease;
+}
+
+.head-logo--scrolled{
+  height: 5.5rem;
+  width: 8.5rem;
 }
 
 
@@ -90,11 +120,12 @@ a {
 
 .title{
   letter-spacing: .25rem;
-  font: 600;
+  font-size: 2rem;
+  margin: 0;
 }
 
 .title--letter{
-  font-size: 2.5rem;
+  font-size: 3.5rem;
 }
 
 .body-section{
@@ -129,6 +160,7 @@ a {
 }
 
 .main-body{
+  margin-top: -2rem;
   margin-left: auto;
   margin-right: auto;
   width: 75vw;
@@ -194,6 +226,7 @@ a {
   bottom: 0px;
   width: 60%;
   left: 20%;
+  z-index: -1;
   transition: all 300ms ease-in-out;
 }
 
@@ -225,6 +258,7 @@ a {
 
 .hero__slide__image--active{
   opacity: 1;
+  height: 100%;
   transition-duration: 1s;
   transform: scale(1.08);
 }
@@ -234,7 +268,8 @@ a {
 }
 
 .orderform{
-  position: relative
+  position: relative;
+  margin: 3rem auto 1rem;
 }
 
 .orderform__modal{
@@ -266,7 +301,7 @@ a {
 }
 
 .price-sheet{
-
+  margin: 3rem auto 1rem;
 }
 
 .price-sheet__main-container{
@@ -275,6 +310,67 @@ a {
 }
 
 .price-sheet__main-container--images{
-  height: 20vh;
-  width: 10vw;
+  height: 30rem;
+  width: 25rem;
+}
+
+.price-sheet__cookie-container{
+  margin: 3rem 4rem;
+  height: 30rem;
+}
+
+.price-sheet__desc-container{
+  position: relative;
+  top: -28.7rem;
+  background-color: hsla(20, 1%, 57%, .5);
+  outline: 2px solid hsla(20, 1%, 99%, .8);
+  outline-offset: 10px;
+  width: 81%;
+  height: 25rem;
+  margin: 0 auto;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.social-media{
+  position: fixed;
+  top: 50%;
+  left: 0;
+  width: 14rem;
+  margin: 0;
+  margin-left: -4.5rem;
+  transform: rotate(-90deg);
+}
+.social-media p{
+  margin: 0;
+}
+
+.social-media__link{
+  height: 100%;
+  width: 100%;
+  padding: .15rem;
+  height: 2rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.social-media__link:visited{
+  color: hsla(329, 28%, 73%, .9);
+}
+.social-media__link:hover{
+  border: 1px solid black;
+  border-radius: 20px;
+  color: black;
+}
+.social-media__link:link{
+  color: black;
+}
+
+.option-description{
+  width: 70%;
+  margin: 0 auto;
 }
