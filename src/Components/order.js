@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function Order( { order: { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl} } ){
+export default function Order( { order: { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl, invoice_paid} } ){
     // const { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl} = order
     // console.log(name, pickupDate)
     return (
@@ -10,7 +10,7 @@ export default function Order( { order: { name, phoneNumber, email, cookieDesc, 
             <p>Phone Number: {phoneNumber}</p>
             <p>Cookie description: {cookieDesc}</p>
             <p>Pickup Date: {pickupDate}</p>
-            {/* <p>Pickup Date: {pickupDate}</p> */}
+            <p>Invoice Paid: {invoice_paid ? "😁" : "🤬"}</p>
         </div>
     )
 }

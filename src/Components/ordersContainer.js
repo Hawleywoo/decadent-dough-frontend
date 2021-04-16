@@ -5,7 +5,8 @@ import OrderSort from './orderSort'
 
 export default function OrdersContainer() {
     const [orders, setOrders] = useState([])
-    const [dueDate, setDueDate] = useState('due date oldest')
+    const [invoicePaid, setInvoicePaid] = useState(false)
+    const [dueDate, setDueDate] = useState('due date newest')
 
     const ordersList = () => {
         return sortOrders().map(({ order, id }) => {
@@ -16,20 +17,33 @@ export default function OrdersContainer() {
     }
 
     const dateToNum = (date) => {
-        console.log(date)
         let dates = date.split('-')
-        return dates.reduce((accum, current) => {
-            let num = parseInt(current)
-            return accum + num
-        } , 0)
+        return parseInt(dates[0] + dates[1] + dates[2])
     }
 
     const sortOrders = () => {
-        return orders.sort((a,b) => {
-            if(dueDate === "due date oldest"){
+
+        return orders.sort((a, b) => {
+            if(invoicePaid){
+                if(dueDate === 'due date newest'){
+                    if(dateToNum(a.order.pickupDate) > dateToNum(b.order.pickupDate) && a.order.invoice_paid){
+                        return -1
+                    } else{
+                        return 1
+                    }
+                }else{
+                    if(dateToNum(a.order.pickupDate) > dateToNum(b.order.pickupDate) && a.order.invoice_paid){
+                        return -1
+                    } else{
+                        return 1
+                    }
+                }
+            }
+
+            if (dueDate === "due date oldest") {
                 return dateToNum(a.order.pickupDate) - dateToNum(b.order.pickupDate)
-            }else{
-                return dateToNum(a.order.pickupDate) - dateToNum(a.order.pickupDate)
+            } else if (dueDate === 'due date newest') {
+                return dateToNum(b.order.pickupDate) - dateToNum(a.order.pickupDate)
             }
         })
     }
@@ -48,17 +62,20 @@ export default function OrdersContainer() {
     })
 
     const handleChange = (event) => {
-        const { value } = event.target
-        setDueDate(value) 
+        const { value, checked } = event.target
+
+        if (value === "due date oldest" || value === "due date newest") {
+            setDueDate(value)
+        }
+        setInvoicePaid(checked)
+
     }
 
     return (
         <div>
-            <OrderSort dueDate={dueDate} handleChange={handleChange}  />
+            <OrderSort dueDate={dueDate} invoicePaid={invoicePaid} handleChange={handleChange} />
             <div className="ordersList" >
                 {ordersList()}
-                <hr />
-                {/* {sortOrders()} */}
             </div>
         </div>
     )
