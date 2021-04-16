@@ -10,9 +10,9 @@ export default function Header (){
 
         const onScroll = () => {
             const scrollPosition = window.scrollY + window.innerHeight
-            console.log(scrollPosition, 'scroll position')
-            console.log(window.innerHeight, 'inner')
-            console.log(window.scrollY, 'sroll Y')
+            // console.log(scrollPosition, 'scroll position')
+            // console.log(window.innerHeight, 'inner')
+            // console.log(window.scrollY, 'sroll Y')
             
             const elPosition = topPosition(headerRef.current)
             

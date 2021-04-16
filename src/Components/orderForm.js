@@ -113,6 +113,7 @@ export default function OrderForm(props) {
             {open && <Modal handleClose={handleClose} />}
             <h2>Order Cookies</h2>
             <hr className="hr__order-price-sheet"/>
+            <p className="option-description"> this how ordering works</p>
             <button onClick={() => setOpen(true)} />
             <form className="card" onSubmit={handleSubmit} >
                 <label>Name</label>

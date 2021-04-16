@@ -8,16 +8,29 @@ export default function OrdersContainer() {
     const [dueDate, setDueDate] = useState('due date oldest')
 
     const ordersList = () => {
-        return orders.map(({ order, id }) => {
+        return sortOrders().map(({ order, id }) => {
             return (
                 <Order key={id} order={order} />
             )
         })
     }
 
+    const dateToNum = (date) => {
+        console.log(date)
+        let dates = date.split('-')
+        return dates.reduce((accum, current) => {
+            let num = parseInt(current)
+            return accum + num
+        } , 0)
+    }
+
     const sortOrders = () => {
         return orders.sort((a,b) => {
-            
+            if(dueDate === "due date oldest"){
+                return dateToNum(a.order.pickupDate) - dateToNum(b.order.pickupDate)
+            }else{
+                return dateToNum(a.order.pickupDate) - dateToNum(a.order.pickupDate)
+            }
         })
     }
 
@@ -44,6 +57,8 @@ export default function OrdersContainer() {
             <OrderSort dueDate={dueDate} handleChange={handleChange}  />
             <div className="ordersList" >
                 {ordersList()}
+                <hr />
+                {/* {sortOrders()} */}
             </div>
         </div>
     )
