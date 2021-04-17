@@ -89,9 +89,6 @@ export default function OrderForm(props) {
         if(confirm === true) handleSubmit()
     }
 
-    // resetState = () => {
-    //     this.setState(initialState)
-    // }
 
     // handleFileChange = (event) => {
     //     this.setState({

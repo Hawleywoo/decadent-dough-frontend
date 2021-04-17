@@ -1,8 +1,6 @@
 import React from 'react'
 
 export default function Order( { order: { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl, invoice_paid} } ){
-    // const { name, phoneNumber, email, cookieDesc, pickupDate, imageUrl} = order
-    // console.log(name, pickupDate)
     return (
         <div className="order" >
             <p>Name: {name}</p>

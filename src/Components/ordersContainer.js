@@ -21,32 +21,24 @@ export default function OrdersContainer() {
         return parseInt(dates[0] + dates[1] + dates[2])
     }
 
-    const sortOrders = () => {
-
-        return orders.sort((a, b) => {
-            if(invoicePaid){
-                if(dueDate === 'due date newest'){
-                    if(dateToNum(a.order.pickupDate) > dateToNum(b.order.pickupDate) && a.order.invoice_paid){
-                        return -1
-                    } else{
-                        return 1
-                    }
-                }else{
-                    if(dateToNum(a.order.pickupDate) > dateToNum(b.order.pickupDate) && a.order.invoice_paid){
-                        return -1
-                    } else{
-                        return 1
-                    }
-                }
-            }
-
-            if (dueDate === "due date oldest") {
-                return dateToNum(a.order.pickupDate) - dateToNum(b.order.pickupDate)
-            } else if (dueDate === 'due date newest') {
-                return dateToNum(b.order.pickupDate) - dateToNum(a.order.pickupDate)
-            }
-        })
+    const byDate = (a, b) => {
+        if(dueDate === 'due date newest'){
+            return dateToNum(a) > dateToNum(b)
+        } else {
+            return dateToNum(b) > dateToNum(a)
+        }
     }
+
+    const sortOrders = () => {
+            return orders.sort((a,b) => {
+                if(invoicePaid){
+                    return (a.order.invoice_paid === b.order.invoice_paid) ? (byDate(a.order.pickupDate, b.order.pickupDate) ? -1 : 1) : a.order.invoice_paid ? -1 : 1
+                } else{
+                    return  byDate(a.order.pickupDate, b.order.pickupDate) ?  -1 : 1
+                }
+            })
+    }
+
 
     useEffect(() => {
         fbFirestore.collection('orders').onSnapshot(snapshot => {
@@ -59,15 +51,19 @@ export default function OrdersContainer() {
                 )
             }))
         })
-    })
+    }, [])
+
 
     const handleChange = (event) => {
         const { value, checked } = event.target
-
+        
         if (value === "due date oldest" || value === "due date newest") {
             setDueDate(value)
         }
-        setInvoicePaid(checked)
+        
+        if(typeof checked !== 'undefined'){
+            setInvoicePaid(checked)
+        }
 
     }
 
