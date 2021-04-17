@@ -39,7 +39,7 @@ a {
 }
 
 .ul__nav{
-  margin: 5em auto 0;
+  margin: 3em auto 1rem;
   padding: 10px;
   display: flex;
   width: 60vw;
@@ -127,8 +127,6 @@ a {
 }
 
 .body-section{
-  /* margin: 5em auto 0; */
-  /* width: 85vw; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -136,12 +134,9 @@ a {
 
 .body-section__image-section{
   display: flex;
-  /* margin: 0 auto; */
-  
 }
 
 .section-image{
-  
   height: 95%;
   width: 95%; 
   z-index: -1;
@@ -257,7 +252,7 @@ a {
 }
 
 .dashboard{
-  margin-bottom: 10em;
+  margin: 10em auto;
 }
 
 .orderform{
@@ -366,4 +361,22 @@ a {
 .option-description{
   width: 70%;
   margin: 0 auto;
+}
+
+
+.footer{
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: hsla(329, 28%, 73%, .2);
+}
+
+.footer *{
+  margin: 1rem;
+}
+
+.footer__logo{
+  height: 3rem;
+  width: 4.5rem;
 }

@@ -1,5 +1,6 @@
 import './App.css';
 import Header from './Components/header';
+import Footer from './Components/footer'
 import OrderForm from './Components/orderForm'
 import React from 'react'
 import Home from './Components/home'
@@ -37,11 +38,8 @@ function App() {
 
       <div className="lower-section" >
         <h2 className="title"><span className="title--letter">W</span>elcome to <span className="title--letter">D</span>ecadent <span className="title--letter">D</span>ough</h2>
-        <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
+        {/* <hr className="hr hr__full" style={{ width: '60vw' }} ></hr> */}
         <div className="main-body">
-          {/* <BodySection order={1} title="About Me" description={aboutUs} imageSource={FloralBabyCookies} />
-          <BodySection order={2} title="My Process" description={nextSection} imageSource={GreenLingerieCookies} /> */}
-
           <Router>
             <div className="main-body__displayed" >
               <div className="main-body__displayed--nav" >
@@ -50,6 +48,7 @@ function App() {
                   <li><Link to='/order-cookies' >Order Cookies</Link></li>
                   <li><Link to='/price-sheet' >Pricing Sheet</Link></li>
                   <li><Link to='/work' >Previous work</Link></li>
+                  <li><Link to='/faq' >FAQ</Link></li>
                 </ul>
               </div>
               <Switch> 
@@ -57,6 +56,7 @@ function App() {
                 <Route path='/order-cookies' component={OrderForm} />
                 <Route path='/price-sheet' component={PriceSheet} />
                 <Route path='/work'  component={() => { }} />
+                <Route path='/faq'  component={() => { }} />
               </Switch>
             </div>
           </Router>
@@ -73,6 +73,7 @@ function App() {
           </Router>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

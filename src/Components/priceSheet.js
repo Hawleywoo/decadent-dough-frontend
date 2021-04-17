@@ -27,8 +27,8 @@ function priceSheet() {
                     </div>
                 </div>
             </div>
-            <div>
-                <h3>Packaging</h3>
+            <div className="price-sheet-packaging">
+                <h3>Packaging:</h3>
                 <p>Standard individually sealed in pastry box.<br />
                     Party Favors additional $6 per dozen.<br />
                     Custom box $10 per box
