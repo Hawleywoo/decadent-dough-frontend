@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/header';
 import OrderForm from './Components/orderForm'
 import React from 'react'
-import BodySection from './Components/bodySection'
+import Home from './Components/home'
 import Login from './Components/Authentication/login'
 import SignUp from './Components/Authentication/signUp'
 import Dashboard from './Components/dashboard'
@@ -20,8 +20,6 @@ import {
   useRouteMatch
 } from 'react-router-dom'
 import { AuthProvider } from './Contexts/authContext'
-import FloralBabyCookies from './images/Cookies/floral_baby_cookies.jpg'
-import GreenLingerieCookies from './images/Cookies/green_lingerie_cookies.jpg'
 
 
 const aboutUs = "I am a small local business in Denver Colorado.  Cookies are my passion and I love making unique custom cookie designs.  I take pride in designing and decorating all the creative and wonderfully fun cookie ideas."
@@ -41,20 +39,23 @@ function App() {
         <h2 className="title"><span className="title--letter">W</span>elcome to <span className="title--letter">D</span>ecadent <span className="title--letter">D</span>ough</h2>
         <hr className="hr hr__full" style={{ width: '60vw' }} ></hr>
         <div className="main-body">
-          <BodySection order={1} title="About Me" description={aboutUs} imageSource={FloralBabyCookies} />
-          <BodySection order={2} title="My Process" description={nextSection} imageSource={GreenLingerieCookies} />
+          {/* <BodySection order={1} title="About Me" description={aboutUs} imageSource={FloralBabyCookies} />
+          <BodySection order={2} title="My Process" description={nextSection} imageSource={GreenLingerieCookies} /> */}
+
           <Router>
             <div className="main-body__displayed" >
               <div className="main-body__displayed--nav" >
                 <ul className='ul__nav'>
-                  <li><Link to='/home' >Order Cookies</Link></li>
-                  <li><Link to='/price_sheet' >Pricing Sheet</Link></li>
+                  <li><Link to='/' >Home</Link></li>
+                  <li><Link to='/order-cookies' >Order Cookies</Link></li>
+                  <li><Link to='/price-sheet' >Pricing Sheet</Link></li>
                   <li><Link to='/work' >Previous work</Link></li>
                 </ul>
               </div>
-              <Switch>
-                <Route path='/home' component={OrderForm} />
-                <Route path='/price_sheet' component={PriceSheet} />
+              <Switch> 
+                <Route exact path='/' component={Home} />
+                <Route path='/order-cookies' component={OrderForm} />
+                <Route path='/price-sheet' component={PriceSheet} />
                 <Route path='/work'  component={() => { }} />
               </Switch>
             </div>

@@ -127,34 +127,65 @@ a {
 }
 
 .body-section{
-  margin-top: 5em;
-  width: 75vw;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: space-around;
+  /* margin: 5em auto 0; */
+  /* width: 85vw; */
   display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-
-.description{
-  padding: 1.75em;
-  width: 30vw;
-  letter-spacing: .15rem;
-}
-
-.description__title{
-  font-size: 1.75rem;
-}
-.description p{
-  font-size: 1.25rem;
+.body-section__image-section{
+  display: flex;
+  /* margin: 0 auto; */
+  
 }
 
 .section-image{
-  padding: 1.5em;
-  max-height: 45vw;
-  max-width: 85%;
+  
+  height: 95%;
+  width: 95%; 
   z-index: -1;
   position: relative;
+}
+
+.image-container{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1rem hsla(329, 28%, 73%, 0) solid;
+  transition: all 300ms ease-in-out;
+  height: 80vh;
+  width: 30vw; 
+}
+
+.image-container:hover .cookie-title{
+  transform: scale(1.25);
+}
+
+.image-container:hover {
+  border:1rem hsla(329, 28%, 73%, .9) solid;
+  transform: scale(1.2);
+}
+
+.cookie-title{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 2em;
+  background-color: hsla(329, 28%, 73%, .9);
+  border-color: white;
+  font-size: 74%;
+  text-align: center;
+  border-style: solid;
+  position: absolute;
+  margin-bottom: 1em;
+  margin-top: 0;
+  bottom: 0px;
+  width: 60%;
+  left: 20%;
+  z-index: -1;
+  transition: all 300ms ease-in-out;
 }
 
 .main-body{
@@ -181,9 +212,7 @@ a {
   flex-direction: column;
 }
 
-.cookie-description {
-  height: 5em;
-}
+
 
 .order{
   display: flex;
@@ -192,40 +221,6 @@ a {
   overflow: auto;
   background-color: hsla(20, 1%, 99%, 1);
   margin: 1em;
-}
-
-.image-title{
-  position: relative;
-  border: 1rem hsla(329, 28%, 73%, 0) solid;
-  transition: all 300ms ease-in-out;
-}
-
-.image-title:hover .cookie-title{
-  transform: scale(1.2);
-}
-
-.image-title:hover {
-  border:1rem hsla(329, 28%, 73%, .9) solid;
-}
-
-.cookie-title{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 2em;
-  background-color: hsla(329, 28%, 73%, .9);
-  border-color: white;
-  font-size: 74%;
-  text-align: center;
-  border-style: solid;
-  position: absolute;
-  margin-bottom: 1em;
-  margin-top: 0;
-  bottom: 0px;
-  width: 60%;
-  left: 20%;
-  z-index: -1;
-  transition: all 300ms ease-in-out;
 }
 
 .hero{
