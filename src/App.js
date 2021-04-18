@@ -2,7 +2,7 @@ import './App.css';
 import Header from './Components/header';
 import Footer from './Components/footer'
 import OrderForm from './Components/orderForm'
-import React from 'react'
+import React, { useEffect } from 'react'
 import Home from './Components/home'
 import Login from './Components/Authentication/login'
 import SignUp from './Components/Authentication/signUp'
@@ -28,7 +28,9 @@ const aboutUs = "I am a small local business in Denver Colorado.  Cookies are my
 const nextSection = "My process starts with consulting with you about the event, look, and feel you would love to eat!  Then I work on a few sketchs of design ideas.  Once the final design has been concocted I mix the dough and cut the cookies by hand.   "
 
 function App() {
-
+  useEffect(() => {
+    document.title = "Decadent Dough"
+  }, []);
   return (
     <div className="App">
       <div className="social-media"><a className="social-media__link" href='https://www.instagram.com/decadent_dough/' target="_blank" rel="noreferrer noopener"><p>Follow us Here:</p> <FaInstagram /></a></div>
@@ -37,42 +39,43 @@ function App() {
       {/* <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" /> */}
 
       <div className="lower-section" >
-        <h2 className="title"><span className="title--letter">W</span>elcome to <span className="title--letter">D</span>ecadent <span className="title--letter">D</span>ough</h2>
-        {/* <hr className="hr hr__full" style={{ width: '60vw' }} ></hr> */}
-        <div className="main-body">
-          <Router>
+        <Router>
+          <div className="main-body__title--container">
+            <h2 className="title"><span className="title--letter">W</span>elcome to <span className="title--letter">D</span>ecadent <span className="title--letter">D</span>ough</h2>
+            <div className="main-body__displayed--nav" >
+              <ul className='ul__nav'>
+                <li><Link className="ul__nav--link" to='/' >Home</Link></li>
+                <li><Link className="ul__nav--link" to='/order-cookies' >Order Cookies</Link></li>
+                <li><Link className="ul__nav--link" to='/price-sheet' >Pricing Sheet</Link></li>
+                <li><Link className="ul__nav--link" to='/faq' >FAQ</Link></li>
+              </ul>
+            </div>
+          </div>
+          <div className="main-body">
             <div className="main-body__displayed" >
-              <div className="main-body__displayed--nav" >
-                <ul className='ul__nav'>
-                  <li><Link to='/' >Home</Link></li>
-                  <li><Link to='/order-cookies' >Order Cookies</Link></li>
-                  <li><Link to='/price-sheet' >Pricing Sheet</Link></li>
-                  <li><Link to='/work' >Previous work</Link></li>
-                  <li><Link to='/faq' >FAQ</Link></li>
-                </ul>
-              </div>
-              <Switch> 
+              <Switch>
                 <Route exact path='/' component={Home} />
                 <Route path='/order-cookies' component={OrderForm} />
                 <Route path='/price-sheet' component={PriceSheet} />
-                <Route path='/work'  component={() => { }} />
-                <Route path='/faq'  component={() => { }} />
+                <Route path='/work' component={() => { }} />
+                <Route path='/faq' component={() => { }} />
               </Switch>
             </div>
-          </Router>
-          <Router>
-            <AuthProvider>
-              <Switch>
-                <PrivateRoute exact path='/' component={Dashboard} />
-                <PrivateRoute path='/update-profile' component={UpdateProfile} />
-                <Route path={`/signup`} component={SignUp} />
-                <Route path={`/login`} component={Login} />
-                <Route path={`/forgot-password`} component={ForgotPassword} />
-              </Switch>
-            </AuthProvider>
-          </Router>
-        </div>
+          </div>
+        </Router>
+        <Router>
+          <AuthProvider>
+            <Switch>
+              <PrivateRoute exact path='/' component={Dashboard} />
+              <PrivateRoute path='/update-profile' component={UpdateProfile} />
+              <Route path={`/signup`} component={SignUp} />
+              <Route path={`/login`} component={Login} />
+              <Route path={`/forgot-password`} component={ForgotPassword} />
+            </Switch>
+          </AuthProvider>
+        </Router>
       </div>
+
       <Footer />
     </div>
   );

@@ -9,15 +9,12 @@ export default function Home(props) {
             <div className="body-section__image-section">
                 <div className="image-container" >
                     <img className="section-image" src={GreenLingerieCookies} alt="images or something" />
-                    <h2 className="cookie-title" >Custom Lingerie</h2>
                 </div>
                 <div className="image-container" >
                     <img className="section-image" src={CNYCookies} alt="images or something" />
-                    <h2 className="cookie-title" >Chinese New Year</h2>
                 </div>
                 <div className="image-container">
                     <img className="section-image" src={FloralBabyCookies} alt="images or something" />
-                    <h2 className="cookie-title" >Elaborate Baby Shower With Floral</h2>
                 </div>
             </div>
             <div className="body-section__description">
