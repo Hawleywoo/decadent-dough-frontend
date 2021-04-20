@@ -1,70 +1,59 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Decadent Dough
 
-In the project directory, you can run:
+## Table of Contents
 
-### `npm start`
+- [](#)
+  - [Table of contents](#table-of-contents)
+  - [General info](#general-info)
+  - [Intro Video](#intro-video)
+  - [Technologies](#technologies)
+  - [Setup](#setup)
+  - [Code Examples](#code-examples)
+  - [Features](#features)
+  - [Status](#status)
+  - [Contact](#contact)
+  
+## General Info
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Decadent Dough app is a full-stack application made with Firebase, React, and SCSS that allows users to find information, previous work, and send order and contact baker. For the baker has list of orders if they have paid and their due date.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Intro Video
+ [](https://youtu.be/FPoKkz813wU)
 
-### `npm test`
+## Project by Andrew Hawley
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    -SCSS
+    -Firebase
+    -React
+    
+## Setup 
+  'npm install' 
+  'npm start' to run on local host
+## Code Examples
+  ```
+       
+   
 
-### `npm run build`
+  ```
+## Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    -Allows users to add and remove todos from list.
+    -Allows users to add address to see where todos are to be done.
+    -Allows users to look at calendar when todos need to be done.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## To-Do List
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    -Refactor “code smell”
+    -Add Finish order form photo upload
+    -Add admin role with auth
+    -Style orders list
+    -Style Forms
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Contact
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Created by [Andrew Hawley](https://www.linkedin.com/in/andrew-hawley-695299182/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Feel free to contact me!
