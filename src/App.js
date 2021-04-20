@@ -22,11 +22,6 @@ import {
 } from 'react-router-dom'
 import { AuthProvider } from './Contexts/authContext'
 
-
-const aboutUs = "I am a small local business in Denver Colorado.  Cookies are my passion and I love making unique custom cookie designs.  I take pride in designing and decorating all the creative and wonderfully fun cookie ideas."
-
-const nextSection = "My process starts with consulting with you about the event, look, and feel you would love to eat!  Then I work on a few sketchs of design ideas.  Once the final design has been concocted I mix the dough and cut the cookies by hand.   "
-
 function App() {
   useEffect(() => {
     document.title = "Decadent Dough"
@@ -36,8 +31,6 @@ function App() {
       <div className="social-media"><a className="social-media__link" href='https://www.instagram.com/decadent_dough/' target="_blank" rel="noreferrer noopener"><p>Follow us Here:</p> <FaInstagram /></a></div>
       <HeroCarousel />
       <Header />
-      {/* <img className="banner-img" src="https://images-gmi-pmc.edge-generalmills.com/087d17eb-500e-4b26-abd1-4f9ffa96a2c6.jpg" alt="cookies" /> */}
-
       <div className="lower-section" >
         <Router>
           <div className="main-body__title--container">

@@ -198,17 +198,6 @@ a {
   flex-direction: column;
 }
 
-
-
-.order{
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  overflow: auto;
-  background-color: hsla(20, 1%, 99%, 1);
-  margin: 1em;
-}
-
 .hero{
   position: relative;
   height: 85vh;
@@ -246,10 +235,25 @@ a {
   margin: 10em auto;
 }
 
+.ordersList{
+  width: 100%;
+  overflow-x: auto;
+}
+table{
+  table-layout:fixed;
+  width: 100%;
+  word-wrap: break-word;
+}
+
+table tr:nth-child(even){background-color: #f2f2f2;}
+
+table tr:hover {background-color: #ddd;}
+
 .orderform{
   position: relative;
   margin: 3rem auto 1rem;
 }
+
 
 .orderform__modal{
   position: absolute;

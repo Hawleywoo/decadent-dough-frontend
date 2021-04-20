@@ -16,7 +16,6 @@ export default function Header (){
             
             const elPosition = topPosition(headerRef.current)
             
-            console.log(elPosition, 'element Y')
             if(window.scrollY > elPosition){
                 setToggle(false)
             } else if(window.scrollY < window.innerHeight){
